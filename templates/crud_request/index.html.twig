@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Request index{% endblock %}
+
+{% block body %}
+    <h1>Request index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>CreatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for request in requests %}
+            <tr>
+                <td>{{ request.id }}</td>
+                <td>{{ request.title }}</td>
+                <td>{{ request.content }}</td>
+                <td>{{ request.createdAt ? request.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('crud_request_show', {'id': request.id}) }}" class="btn btn-secondary">show</a>
+                    <a href="{{ path('crud_request_edit', {'id': request.id}) }}"class="btn btn-secondary">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('crud_request_new') }}" class="btn btn-primary">Create new</a>
+{% endblock %}

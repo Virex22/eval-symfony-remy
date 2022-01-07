@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RequestController!{% endblock %}
+
+{% block body %}
+
+
+<div class="content">
+<h1 class="h1">Demande</h1>
+<div class="card">
+
+    <div class="card-body m-4 p-4">
+    {{ form_start(form)}}
+    {{ form_rest(form)}}
+    <input type="submit" class="btn btn-primary" value="Envoyer la demande">
+    {{ form_end(form)}}</div>
+</div>
+    
+</div>
+{% endblock %}

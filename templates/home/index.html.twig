@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>titre</th>
+            <th>contenu</th>
+            <th>nom et prenom du client</th>
+            <th>entreprise</th>
+            <th>crée le</th>
+            <th>status</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for request in requests %}
+        <tr>
+            <td scope="row">{{request.id}}</td>
+            <td>{{request.title}}</td>
+            <td>{{request.content}}</td>
+            <td>{{request.customer}}</td>
+            <td>{{request.customer.compagny}}</td>
+            <td>{{request.createdAt | date("d/m/Y")}}</td>
+            <td>{{request.status}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="alert alert-success mt-5 text-center">Bonjour dieu, Bienvenue sur mon CRM !</div>
+
+
+{% endblock %}
